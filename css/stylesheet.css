@@ -1,10 +1,30 @@
-.invisible {
-	display: none;
+body {
+	margin: 0;
+	padding: 0;
 }
 
 #container {
-	height: 500px;
+	height: 450px;
 	width: 70%;
 	border: 1px solid black;
 	margin: 50px auto;
 }
+
+.dispalys {
+	height: 30%;
+	margin: 1% 0;
+}
+
+
+.player {
+	
+	width: 35%;
+	border: 1px solid black;
+	margin: 40px 7%;
+	float: left;
+	text-align: center;
+	font-size: 5em;
+/*	margin: 5%;*/
+}
+
+
