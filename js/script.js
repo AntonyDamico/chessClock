@@ -37,11 +37,25 @@ var counters = [
 //Event listener to change turns clicking the panels
 for (var i = 0; i < panel.length; i++) {
 	panel[i].addEventListener("click", function() {
-		panel[+current].classList.toggle("active");
-		current = !current;
-		console.log("tic")
-		panel[+current].classList.toggle("active");
+		changeTurns();
 	});
+}
+
+//Event listener to change turns pressing the spacebar
+document.addEventListener("keypress", function(e){
+	if(e.keyCode === 32){
+		changeTurns();
+	}
+	if(!playing){
+		pause();
+	}
+});
+
+//function to change turns
+function changeTurns(){
+	panel[+current].classList.toggle("active");
+	current = !current;
+	panel[+current].classList.toggle("active");
 }
 
 
