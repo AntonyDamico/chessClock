@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Chess Clock</title>
 	<link rel="stylesheet" href="css/stylesheet.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 </head>
 <body>
 	
@@ -11,16 +12,23 @@
 
 	<div id="container">
 
-		<div class="dispalys">
-			<div id="counter1" class="player"></div>
-			<div id="counter2" class="player"></div>
+		
+		<div class="player active" >
+			<p id="counter1"></p>
+		</div>
+
+		<div class="player">
+			<p id="counter2"></p>
 		</div>
 		
-
+		
 		<div class="buttons">
-			<button >player 1</button>
-			<button disabled>player 2</button>
+			<button id="restart"><i class="fas fa-undo fa-2x"></i></button>
+			<button id="pause"><i class="fas fa-play fa-2x"></i></button>
+			<button id="options"><i class="fas fa-cog fa-2x"></i></button>
 		</div>
+
+
 
 
 	</div>

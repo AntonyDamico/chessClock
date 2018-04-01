@@ -1,11 +1,17 @@
+//Varible that says if the game is on pause
+var playing = false;
+
 //Current player
 var current = false;
-var startTime = 5;
+
+//Start time of the clocks
+var startTime = 300;
+
+//Buttons to change the turn
 var buttons = document.querySelectorAll("button");
 
 
-//Counter object, it contains the current time of the counter and
-// the document object of the counter
+//Counter class, it contains the display and the current time of the counter 
 var Counter = function(display, time) {
 	this.time = time;
 	this.display = display;
@@ -16,31 +22,71 @@ var Counter = function(display, time) {
 		if (this.time > 0) {
 			this.time--;
 			display.textContent = convertSeconds(this.time);
-		} else {
-			buttons[+current].disabled = true;
-			alert("Player " + +current + " ran out of time")
-			//Exits out of the setInterval
-			clearInterval(1);
 		}
 	}
 }
 
 
+//Array of the Counter objects
 var counters = [
 	new Counter(document.querySelector("#counter1"), startTime),
 	new Counter(document.querySelector("#counter2"), startTime)
 ];
 
 
-//Event listener to change the current player's timer 
-for (var i = 0; i < buttons.length; i++) {
-	buttons[i].addEventListener("click", function() {
-		buttons[+current].disabled = true;
+
+
+var panel = document.querySelectorAll(".player");
+
+for (var i = 0; i < panel.length; i++) {
+	panel[i].addEventListener("click", function() {
+		panel[+current].classList.toggle("active");
 		current = !current;
 		console.log("tic")
-		buttons[+current].disabled = false;
+		panel[+current].classList.toggle("active");
 	});
 }
+
+
+document.querySelector("#restart").addEventListener("click", function(){
+	restart();
+	if(playing){
+		pause();	
+	}
+	
+}); 
+
+
+document.querySelector("#pause").addEventListener("click", function(){
+	pause();
+});
+
+
+document.querySelector("#options").addEventListener("click", function(){
+	startTime = prompt("How many minutes would you like to play?") * 60
+	restart();
+});
+
+
+
+
+function restart(){
+	for (var i = 0; i < counters.length; i++) {
+		counters[i].time = startTime;
+		counters[i].display.textContent = convertSeconds(startTime);
+	}
+}
+
+
+function pause(){
+	var pauseButton = document.querySelectorAll("svg")[1];
+	pauseButton.classList.toggle("fa-pause");
+	pauseButton.classList.toggle("fa-play");
+
+	playing = !playing;
+}
+
+
 
 //Function to change seconds into a mm:ss format
 function convertSeconds(s) {
@@ -56,9 +102,11 @@ function convertSeconds(s) {
 
 
 function init() {
-	//The unary + operator converts a boolean into an integer
-	//+1 is true and +0 is false
-	counters[+current].passTime();
+	if(playing){
+		//The unary + operator converts a boolean into an integer
+		//+1 is true and +0 is false
+		counters[+current].passTime();
+	}
 };
 
 

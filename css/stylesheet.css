@@ -8,23 +8,37 @@ body {
 	width: 70%;
 	border: 1px solid black;
 	margin: 50px auto;
+	padding: 0;
 }
 
-.dispalys {
-	height: 30%;
-	margin: 1% 0;
+.active {
+	background: blue;
 }
 
 
 .player {
-	
+	height: 50%;
 	width: 35%;
 	border: 1px solid black;
 	margin: 40px 7%;
 	float: left;
-	text-align: center;
 	font-size: 5em;
-/*	margin: 5%;*/
+	vertical-align: middle;
+	line-height: 100%;
+}
+
+p {
+	margin-top: 20%;	
+	line-height: 100%;
+	text-align: center;
+}
+
+button {
+	width: 10%;
+	margin: 40px 105px;
+	background: none;
+	border: none;
+	outline: none;
 }
 
 
