@@ -7,8 +7,8 @@ var current = false;
 //Start time of the clocks, 5 minutes
 var startTime = 300;
 
-//Buttons to change the turn
-var buttons = document.querySelectorAll("button");
+//Panel where the timer is
+var panel = document.querySelectorAll(".player");
 
 
 //Counter class, it contains the display and the current time of the counter 
@@ -34,9 +34,7 @@ var counters = [
 ];
 
 
-
-var panel = document.querySelectorAll(".player");
-
+//Event listener to change turns clicking the panels
 for (var i = 0; i < panel.length; i++) {
 	panel[i].addEventListener("click", function() {
 		panel[+current].classList.toggle("active");
@@ -49,6 +47,7 @@ for (var i = 0; i < panel.length; i++) {
 
 document.querySelector("#restart").addEventListener("click", function() {
 	restart();
+	//If the game is going it will pause it
 	if (playing) {
 		pause();
 	}
@@ -106,5 +105,5 @@ function init() {
 	}
 };
 
-
+//Main method
 setInterval(init, 1000);

@@ -5,6 +5,26 @@ body {
 	background: rgb(200,200,200);
 }
 
+p {
+	margin-top: 20%;	
+	line-height: 100%;
+	text-align: center;
+}
+
+button {
+	width: 10%;
+	margin: 40px 105px;
+	background: none;
+	border: none;
+	outline: none;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+button:hover {
+	color: rgb(90, 90, 90);
+}
+
 #container {
 	height: 450px;
 	width: 70%;
@@ -33,25 +53,4 @@ body {
 	color: rgb(251,251,251);
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
-
-p {
-	margin-top: 20%;	
-	line-height: 100%;
-	text-align: center;
-}
-
-button {
-	width: 10%;
-	margin: 40px 105px;
-	background: none;
-	border: none;
-	outline: none;
-	transition: 0.3s;
-	cursor: pointer;
-}
-
-button:hover {
-	color: rgb(90, 90, 90);
-}
-
 
