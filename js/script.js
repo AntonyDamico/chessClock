@@ -4,7 +4,7 @@ var playing = false;
 //Current player
 var current = false;
 
-//Start time of the clocks
+//Start time of the clocks, 5 minutes
 var startTime = 300;
 
 //Buttons to change the turn
@@ -35,7 +35,6 @@ var counters = [
 
 
 
-
 var panel = document.querySelectorAll(".player");
 
 for (var i = 0; i < panel.length; i++) {
@@ -48,29 +47,27 @@ for (var i = 0; i < panel.length; i++) {
 }
 
 
-document.querySelector("#restart").addEventListener("click", function(){
+document.querySelector("#restart").addEventListener("click", function() {
 	restart();
-	if(playing){
-		pause();	
+	if (playing) {
+		pause();
 	}
-	
-}); 
+});
 
 
-document.querySelector("#pause").addEventListener("click", function(){
+document.querySelector("#pause").addEventListener("click", function() {
 	pause();
 });
 
 
-document.querySelector("#options").addEventListener("click", function(){
+document.querySelector("#options").addEventListener("click", function() {
 	startTime = prompt("How many minutes would you like to play?") * 60
 	restart();
 });
 
 
 
-
-function restart(){
+function restart() {
 	for (var i = 0; i < counters.length; i++) {
 		counters[i].time = startTime;
 		counters[i].display.textContent = convertSeconds(startTime);
@@ -78,7 +75,7 @@ function restart(){
 }
 
 
-function pause(){
+function pause() {
 	var pauseButton = document.querySelectorAll("svg")[1];
 	pauseButton.classList.toggle("fa-pause");
 	pauseButton.classList.toggle("fa-play");
@@ -102,7 +99,7 @@ function convertSeconds(s) {
 
 
 function init() {
-	if(playing){
+	if (playing) {
 		//The unary + operator converts a boolean into an integer
 		//+1 is true and +0 is false
 		counters[+current].passTime();
