@@ -1,19 +1,12 @@
 body {
 	margin: 0;
 	padding: 0;
-	color: black;
+	color: #000000;
 	background: rgb(200,200,200);
-}
-
-p {
-	margin-top: 20%;	
-	line-height: 100%;
-	text-align: center;
 }
 
 button {
 	width: 10%;
-	margin: 40px 105px;
 	background: none;
 	border: none;
 	outline: none;
@@ -21,31 +14,40 @@ button {
 	cursor: pointer;
 }
 
+.buttons {
+    width: 100%;
+    padding: 4% 0%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 button:hover {
 	color: rgb(90, 90, 90);
 }
 
 #container {
-	height: 450px;
-	width: 70%;
-	margin: 50px auto;
-	padding: 0;
-	background: rgb(220,220,220);
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 25px 0 rgba(0,0,0,0.19);
+	width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tiempos {
+    display: flex;
+    justify-content: space-between;
 }
 
 .player {
-	height: 50%;
-	width: 35%;
-	margin: 40px 7%;
-	float: left;
-	font-size: 5em;
-	vertical-align: middle;
-	line-height: 100%;
-	background: rgba(70,70,70,0.5);
+	width: 48%;
+    margin 0px auto;
+	font-size: 8em;
+	background: rgba(70,70,70, 0.5);
 	transition: 0.3s;
 	cursor: pointer;
 	user-select: none;
+}
+
+.player p {
+    text-align: center;
 }
 
 .active {
@@ -54,3 +56,35 @@ button:hover {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+@media only screen and (max-width: 1200px) {
+    #container {
+        width: 80%;
+    }
+    .player {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .player {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .tiempos {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .player {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .tiempos {
+        display: flex;
+        flex-direction: column;
+    }
+}
